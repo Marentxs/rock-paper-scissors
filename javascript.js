@@ -87,14 +87,6 @@ function playGame() {
 
   let result = playRound(getHumanChoice(), getComputerChoice());
 
-  if (result.includes("You win")) {
-    humanScore += 100;
-  } else if (result.includes("The computer wins")) {
-    computerScore += 100;
-  }
-  console.log(`Score: Human ${humanScore} - Computer ${computerScore}`);
-
-  result = playRound(getHumanChoice(), getComputerChoice());
   console.log(result);
   if (result.includes("You win")) {
     humanScore += 100;
@@ -129,12 +121,25 @@ function playGame() {
     computerScore += 100;
   }
   console.log(`Score: Human ${humanScore} - Computer ${computerScore}`);
+
+  result = playRound(getHumanChoice(), getComputerChoice());
+  console.log(result);
+  if (result.includes("You win")) {
+    humanScore += 100;
+  } else if (result.includes("The computer wins")) {
+    computerScore += 100;
+  }
+  console.log(`Score: Human ${humanScore} - Computer ${computerScore}`);
+
+  //GameOver message//
 
   function endMessage() {
     if (humanScore > computerScore) {
       console.log("You win, congratulations!");
+    } else if (humanScore < computerScore) {
+      console.log("You lose, better luck next time!");
     } else {
-      console.log("You lose, better luck next time");
+      console.log("It is an unlikely tie!");
     }
   }
   endMessage();
