@@ -40,6 +40,7 @@ function getHumanChoice() {
 }
 
 //Logic to play 1 round//
+
 function playRound(humanChoice, computerChoice) {
   if (
     humanChoice === "User plays rock" &&
@@ -76,24 +77,53 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
-//Saves results from functions into variables//
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-const result = playRound(humanSelection, computerSelection);
+function playGame() {
+  let humanScore = 0;
+  let computerScore = 0;
 
-console.log(result);
+  let result = playRound(getHumanChoice(), getComputerChoice());
+  if (result.includes("You win")) {
+    humanScore += 100;
+  } else if (result.includes("The computer wins")) {
+    computerScore += 100;
+  }
+  console.log(`Score: Human ${humanScore} - Computer ${computerScore}`);
 
-//Variables for score
-let humanScore = 0;
-let computerScore = 0;
+  result = playRound(getHumanChoice(), getComputerChoice());
+  console.log(result);
+  if (result.includes("You win")) {
+    humanScore += 100;
+  } else if (result.includes("The computer wins")) {
+    computerScore += 100;
+  }
+  console.log(`Score: Human ${humanScore} - Computer ${computerScore}`);
 
-//Point system//
-if (result.includes("You win")) {
-  humanScore += 100;
-} else if (result.includes("The computer wins")) {
-  computerScore += 100;
-} else {
+  result = playRound(getHumanChoice(), getComputerChoice());
+  console.log(result);
+  if (result.includes("You win")) {
+    humanScore += 100;
+  } else if (result.includes("The computer wins")) {
+    computerScore += 100;
+  }
+  console.log(`Score: Human ${humanScore} - Computer ${computerScore}`);
+
+  result = playRound(getHumanChoice(), getComputerChoice());
+  console.log(result);
+  if (result.includes("You win")) {
+    humanScore += 100;
+  } else if (result.includes("The computer wins")) {
+    computerScore += 100;
+  }
+  console.log(`Score: Human ${humanScore} - Computer ${computerScore}`);
+
+  result = playRound(getHumanChoice(), getComputerChoice());
+  console.log(result);
+  if (result.includes("You win")) {
+    humanScore += 100;
+  } else if (result.includes("The computer wins")) {
+    computerScore += 100;
+  }
+  console.log(`Score: Human ${humanScore} - Computer ${computerScore}`);
 }
 
-//Keeps score//
-console.log(`Score: Human ${humanScore} - Computer ${computerScore}`);
+playGame();
