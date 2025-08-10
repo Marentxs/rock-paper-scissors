@@ -77,11 +77,16 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
+//Logic to play full game (5 rounds round)//
+
 function playGame() {
   let humanScore = 0;
   let computerScore = 0;
 
+  //Makes 1 round get played//
+
   let result = playRound(getHumanChoice(), getComputerChoice());
+
   if (result.includes("You win")) {
     humanScore += 100;
   } else if (result.includes("The computer wins")) {
@@ -124,6 +129,15 @@ function playGame() {
     computerScore += 100;
   }
   console.log(`Score: Human ${humanScore} - Computer ${computerScore}`);
+
+  function endMessage() {
+    if (humanScore > computerScore) {
+      console.log("You win, congratulations!");
+    } else {
+      console.log("You lose, better luck next time");
+    }
+  }
+  endMessage();
 }
 
 playGame();
