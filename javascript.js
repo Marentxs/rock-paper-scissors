@@ -14,32 +14,8 @@ function getComputerChoice() {
     computer = "Computer plays scissors";
   }
 
-  //Print in the console the winner of the random choice//
-  console.log(computer);
   return computer;
 }
-
-function getHumanChoice() {
-  //Asks hand to user//
-  let choice = prompt("What hand will you play");
-
-  //Converts answer to lowerCase, to avoid issues with uppercase letters//
-  choice = choice.toLowerCase();
-
-  if (choice === "rock") {
-    user = "User plays rock";
-  } else if (choice === "paper") {
-    user = "User plays paper";
-  } else {
-    user = "User plays scissors";
-  }
-
-  //Prints selection in the console//
-  console.log(user);
-  return user;
-}
-
-//Logic to play 1 round//
 
 function playRound(humanChoice, computerChoice) {
   if (
@@ -77,7 +53,40 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
-//Logic to play full game (5 rounds round)//
+let choice = "";
+function getHumanChoice() {
+  return `User plays ${choice}`;
+}
+
+//Event listeners, trigger everything
+
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissors = document.querySelector("#scissors");
+
+rock.addEventListener("click", (event) => {
+  choice = "rock";
+  const human = getHumanChoice();
+  const comp = getComputerChoice();
+  console.log(human, comp);
+  playRound(human, comp);
+});
+
+paper.addEventListener("click", (event) => {
+  choice = "paper";
+  const human = getHumanChoice();
+  const comp = getComputerChoice();
+  console.log(human, comp);
+  playRound(human, comp);
+});
+
+scissors.addEventListener("click", (event) => {
+  choice = "scissors";
+  const human = getHumanChoice();
+  const comp = getComputerChoice();
+  console.log(human, comp);
+  playRound(human, comp);
+});
 
 function playGame() {
   let humanScore = 0;
@@ -87,42 +96,6 @@ function playGame() {
 
   let result = playRound(getHumanChoice(), getComputerChoice());
 
-  console.log(result);
-  if (result.includes("You win")) {
-    humanScore += 100;
-  } else if (result.includes("The computer wins")) {
-    computerScore += 100;
-  }
-  console.log(`Score: Human ${humanScore} - Computer ${computerScore}`);
-
-  result = playRound(getHumanChoice(), getComputerChoice());
-  console.log(result);
-  if (result.includes("You win")) {
-    humanScore += 100;
-  } else if (result.includes("The computer wins")) {
-    computerScore += 100;
-  }
-  console.log(`Score: Human ${humanScore} - Computer ${computerScore}`);
-
-  result = playRound(getHumanChoice(), getComputerChoice());
-  console.log(result);
-  if (result.includes("You win")) {
-    humanScore += 100;
-  } else if (result.includes("The computer wins")) {
-    computerScore += 100;
-  }
-  console.log(`Score: Human ${humanScore} - Computer ${computerScore}`);
-
-  result = playRound(getHumanChoice(), getComputerChoice());
-  console.log(result);
-  if (result.includes("You win")) {
-    humanScore += 100;
-  } else if (result.includes("The computer wins")) {
-    computerScore += 100;
-  }
-  console.log(`Score: Human ${humanScore} - Computer ${computerScore}`);
-
-  result = playRound(getHumanChoice(), getComputerChoice());
   console.log(result);
   if (result.includes("You win")) {
     humanScore += 100;
