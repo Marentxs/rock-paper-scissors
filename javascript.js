@@ -1,10 +1,12 @@
 function getComputerChoice() {
   //Assign each option with a random number between 0-1 with decimals//
+
   let random1 = Math.random();
   let random2 = Math.random();
   let random3 = Math.random();
 
   //Check which one is the biggest number//
+
   let computer;
   if (random1 > random2 && random1 > random3) {
     computer = "Computer plays rock";
@@ -16,6 +18,8 @@ function getComputerChoice() {
 
   return computer;
 }
+
+//Logic for 1 round
 
 function playRound(humanChoice, computerChoice) {
   if (
@@ -58,6 +62,16 @@ function getHumanChoice() {
   return `User plays ${choice}`;
 }
 
+//Score functions
+
+let humanScore = 0;
+let computerScore = 0;
+
+function updateScore() {
+  const scoreElement = document.querySelector("#score");
+  scoreElement.textContent = `User score: ${humanScore} - Computer score: ${computerScore} `;
+}
+
 //Event listeners, trigger everything
 
 const rock = document.querySelector("#rock");
@@ -68,54 +82,73 @@ rock.addEventListener("click", (event) => {
   choice = "rock";
   const human = getHumanChoice();
   const comp = getComputerChoice();
-  console.log(human, comp);
-  playRound(human, comp);
+  console.log(human + " - " + comp);
+
+  const result = playRound(human, comp);
+  console.log(result);
+
+  if (result.startsWith("You win")) {
+    humanScore++;
+  } else if (result.startsWith("The computer wins")) {
+    computerScore++;
+  }
+
+  updateScore();
+  checkGameOver();
 });
 
 paper.addEventListener("click", (event) => {
   choice = "paper";
   const human = getHumanChoice();
   const comp = getComputerChoice();
-  console.log(human, comp);
-  playRound(human, comp);
+  console.log(human + " - " + comp);
+
+  const result = playRound(human, comp);
+  console.log(result);
+
+  if (result.startsWith("You win")) {
+    humanScore++;
+  } else if (result.startsWith("The computer wins")) {
+    computerScore++;
+  }
+
+  updateScore();
+  checkGameOver();
 });
 
 scissors.addEventListener("click", (event) => {
   choice = "scissors";
   const human = getHumanChoice();
   const comp = getComputerChoice();
-  console.log(human, comp);
-  playRound(human, comp);
+  console.log(human + " - " + comp);
+
+  const result = playRound(human, comp);
+  console.log(result);
+
+  if (result.startsWith("You win")) {
+    humanScore++;
+  } else if (result.startsWith("The computer wins")) {
+    computerScore++;
+  }
+
+  updateScore();
+  checkGameOver();
 });
 
-function playGame() {
-  let humanScore = 0;
-  let computerScore = 0;
+//Function to end game once the score reaches 5
 
-  //Makes 1 round get played//
-
-  let result = playRound(getHumanChoice(), getComputerChoice());
-
-  console.log(result);
-  if (result.includes("You win")) {
-    humanScore += 100;
-  } else if (result.includes("The computer wins")) {
-    computerScore += 100;
+function checkGameOver() {
+  if (humanScore === 5) {
+    alert("You won the game!");
+    disableButtons();
+  } else if (computerScore === 5) {
+    alert("The computer won the game!");
+    disableButtons();
   }
-  console.log(`Score: Human ${humanScore} - Computer ${computerScore}`);
-
-  //GameOver message//
-
-  function endMessage() {
-    if (humanScore > computerScore) {
-      console.log("You win, congratulations!");
-    } else if (humanScore < computerScore) {
-      console.log("You lose, better luck next time!");
-    } else {
-      console.log("It is an unlikely tie!");
-    }
-  }
-  endMessage();
 }
 
-playGame();
+function disableButtons() {
+  rock.disabled = true;
+  paper.disabled = true;
+  scissors.disabled = true;
+}
