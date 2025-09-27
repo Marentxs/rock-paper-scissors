@@ -8,9 +8,9 @@ function computer() {
 
 //attach buttons
 
-const rockbtn = document.querySelector("#rock");
-const paperbtn = document.querySelector("#paper");
-const scissorsbtn = document.querySelector("#scissors");
+const rockbtn = document.getElementById("rock");
+const paperbtn = document.getElementById("paper");
+const scissorsbtn = document.getElementById("scissors");
 
 const humanScore = document.getElementById("humanScore");
 const computerScore = document.getElementById("computerScore");

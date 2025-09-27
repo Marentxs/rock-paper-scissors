@@ -4,16 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissors</title>
+
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h1>JavaScript Rock Paper Scissors</h1>
-    <p>Press the button to choose your hand, first to 5 points wins.</p>
-    <button id="rock">Rock</button>
-    <button id="paper">Paper</button>
-    <button id="scissors">Scissors</button>
-    <img src="./images/rock.png" class="clickable-img" />
-    <img src="./images/paper.png" class="clickable-img" />
-    <img src="./images/scissors.png" class="clickable-img" />
+    <div id="container">
+      <h1>JavaScript Rock Paper Scissors</h1>
+      <p>Press the button to choose your hand, first to 5 points wins.</p>
+      <div id="buttons">
+        <img id="rock" src="./images/rock.png" class="clickable-img" />
+        <img id="paper" src="./images/paper.png" class="clickable-img" />
+        <img id="scissors" src="./images/scissors.png" class="clickable-img" />
+      </div>
+    </div>
 
     <div id="score">
       Player score: <span id="humanScore">0</span> - Computer score:

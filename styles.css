@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: monospace;
+  font-size: 16px;
+  background: #111111;
+  color: #eee;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+}
+
+.clickable-img {
+  width: 150px; /* or % for responsive */
+  height: auto; /* keeps aspect ratio */
+}
+
+#score {
+  font-family: "Orbitron";
+  font-size: 32px;
+  color: red;
+  text-shadow: 0 0 8px red;
+  background: #111;
+  padding: 10px 20px;
+  border-radius: 4px;
+}
