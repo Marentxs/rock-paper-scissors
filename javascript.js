@@ -14,22 +14,24 @@ const scissorsbtn = document.getElementById("scissors");
 
 const humanScore = document.getElementById("humanScore");
 const computerScore = document.getElementById("computerScore");
+const title = document.getElementById("title");
+const instructions = document.getElementById("instructions");
 
 rockbtn.addEventListener("click", () => {
   humanChoice = "rock";
-  console.log("User plays " + humanChoice);
-
   const computerChoice = computer();
-  console.log("Computer plays " + computerChoice);
+
+  title.textContent =
+    "User plays " + humanChoice + " - Computer plays " + computerChoice;
 
   if (computerChoice === "rock") {
-    console.log("It's a tie");
+    instructions.textContent = "Rock ties with rock";
   } else if (computerChoice === "paper") {
     computerScore.textContent++;
-    console.log("You lose");
+    instructions.textContent = "Rock loses to paper";
   } else if (computerChoice === "scissors") {
     humanScore.textContent++;
-    console.log("You win!");
+    instructions.textContent = "Rock beats paper";
   }
 
   if (humanScore.textContent > 4 || computerScore.textContent > 4) {
@@ -39,19 +41,18 @@ rockbtn.addEventListener("click", () => {
 
 paperbtn.addEventListener("click", () => {
   humanChoice = "paper";
-  console.log("User plays " + humanChoice);
-
   const computerChoice = computer();
-  console.log("Computer plays " + computerChoice);
+  title.textContent =
+    "User plays " + humanChoice + " - Computer plays " + computerChoice;
 
   if (computerChoice === "rock") {
     humanScore.textContent++;
-    console.log("You win!");
+    instructions.textContent = "Paper beats rock";
   } else if (computerChoice === "paper") {
-    console.log("It's a tie");
+    instructions.textContent = "Paper ties with paper";
   } else if (computerChoice === "scissors") {
     computerScore.textContent++;
-    console.log("You lose");
+    instructions.textContent = "Paper loses to scissors";
   }
 
   if (humanScore.textContent > 4 || computerScore.textContent > 4) {
@@ -61,19 +62,19 @@ paperbtn.addEventListener("click", () => {
 
 scissorsbtn.addEventListener("click", () => {
   humanChoice = "scissors";
-  console.log("User plays " + humanChoice);
-
   const computerChoice = computer();
-  console.log("Computer plays " + computerChoice);
+
+  title.textContent =
+    "User plays " + humanChoice + " - Computer plays " + computerChoice;
 
   if (computerChoice === "rock") {
     computerScore.textContent++;
-    console.log("You lose");
+    instructions.textContent = "Scissors loses to rock";
   } else if (computerChoice === "paper") {
     humanScore.textContent++;
-    console.log("You win!");
+    instructions.textContent = "Scissors beats paper";
   } else if (computerChoice === "scissors") {
-    console.log("It's a tie");
+    instructions.textContent = "Scissors ties with scissors";
   }
 
   if (humanScore.textContent > 4 || computerScore.textContent > 4) {
@@ -101,8 +102,6 @@ function update() {
   instructions.style.cursor = "pointer";
 }
 
-const instructions = document.getElementById("instructions");
-
 instructions.addEventListener("click", () => {
   restartGame();
   document.getElementById("game-over").textContent = "";
@@ -116,4 +115,6 @@ function restartGame() {
   rockbtn.classList.remove("disabled-img");
   paperbtn.classList.remove("disabled-img");
   scissorsbtn.classList.remove("disabled-img");
+  instructions.style.cursor = "auto";
+  title.textContent = "JavaScript Rock Paper Scissors";
 }
