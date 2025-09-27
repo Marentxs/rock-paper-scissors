@@ -98,4 +98,22 @@ function disableButton() {
 function update() {
   document.getElementById("instructions").textContent =
     "To play again press here.";
+  instructions.style.cursor = "pointer";
+}
+
+const instructions = document.getElementById("instructions");
+
+instructions.addEventListener("click", () => {
+  restartGame();
+  document.getElementById("game-over").textContent = "";
+  document.getElementById("instructions").textContent =
+    "Press the button to choose your hand, first to 5 points wins.";
+});
+
+function restartGame() {
+  humanScore.textContent = 0;
+  computerScore.textContent = 0;
+  rockbtn.classList.remove("disabled-img");
+  paperbtn.classList.remove("disabled-img");
+  scissorsbtn.classList.remove("disabled-img");
 }
