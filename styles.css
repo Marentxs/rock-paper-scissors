@@ -34,7 +34,6 @@ H1,
 #score {
   font-size: 38px;
   color: red;
-  text-shadow: 0 0 8px red;
   background: #333;
   padding: 10px 20px;
   border-radius: 4px;
@@ -60,4 +59,10 @@ a {
 .disabled-img {
   pointer-events: none;
   opacity: 0.5;
+}
+
+#game-over {
+  font-size: 2rem;
+  color: b1b1b1;
+  text-shadow: 0 0 8px red;
 }

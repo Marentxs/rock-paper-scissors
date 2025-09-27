@@ -88,7 +88,14 @@ function disableButton() {
 
   if (humanScore.textContent > computerScore.textContent) {
     document.getElementById("game-over").textContent = "You win!";
+    update();
   } else {
     document.getElementById("game-over").textContent = "You lose!";
+    update();
   }
+}
+
+function update() {
+  document.getElementById("instructions").textContent =
+    "To play again press here.";
 }
