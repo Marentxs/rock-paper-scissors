@@ -82,9 +82,9 @@ scissorsbtn.addEventListener("click", () => {
 });
 
 function disableButton() {
-  rockbtn.disabled = true;
-  paperbtn.disabled = true;
-  scissorsbtn.disabled = true;
+  rockbtn.classList.add("disabled-img");
+  paperbtn.classList.add("disabled-img");
+  scissorsbtn.classList.add("disabled-img");
 
   if (humanScore.textContent > computerScore.textContent) {
     alert("You win!");
