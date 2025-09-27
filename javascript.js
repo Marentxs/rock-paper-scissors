@@ -87,8 +87,8 @@ function disableButton() {
   scissorsbtn.classList.add("disabled-img");
 
   if (humanScore.textContent > computerScore.textContent) {
-    alert("You win!");
+    document.getElementById("game-over").textContent = "You win!";
   } else {
-    alert("You lose!");
+    document.getElementById("game-over").textContent = "You lose!";
   }
 }
